@@ -9,7 +9,7 @@ use utils::fibonacci;
 ///
 /// By considering the terms in the Fibonacci sequence whose values do not
 /// exceed four million, find the sum of the even-valued terms.
-pub fn solve2(limit: u32) {
+pub fn solve_while(limit: u32) {
     let mut sum = 0;
     let mut iterator = fibonacci::fibonacci();
     let mut current = iterator.next();
@@ -22,6 +22,20 @@ pub fn solve2(limit: u32) {
         current = iterator.next();
     }
 
+    println!(
+        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
+        limit, sum
+    )
+}
+
+pub fn solve_for(limit: u32) {
+    let mut sum = 0;
+    for current in fibonacci::fibonacci() {
+        if current > limit {
+            break;
+        }
+        sum += if current % 2 == 0 { current } else { 0 }
+    }
     println!(
         "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
         limit, sum
