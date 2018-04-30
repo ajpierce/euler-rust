@@ -41,3 +41,14 @@ pub fn solve_for(limit: u32) {
         limit, sum
     )
 }
+
+pub fn solve_takewhile(limit: u32) {
+    let sum = fibonacci::fibonacci()
+        .take_while(|x| x < &limit)
+        .fold(0, |sum, x| if x % 2 == 0 { sum + x } else { sum });
+
+    println!(
+        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
+        limit, sum
+    )
+}
