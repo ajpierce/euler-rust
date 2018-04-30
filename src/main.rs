@@ -1,15 +1,16 @@
 #![feature(test)]
 
+extern crate num_bigint;
 // extern crate test;
 // use test::Bencher;
 
-mod fibonacci;
+mod utils;
 // mod p1;
 mod p2;
 
 fn main() {
     // p1::fold_sum(10000);
-    p2::solve2(8);
+    p2::solve2(4000000);
 }
 
 /*
