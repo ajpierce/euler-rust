@@ -21,7 +21,6 @@ pub fn solve_while(limit: u32) {
         };
         current = iterator.next();
     }
-
     println!(
         "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
         limit, sum
@@ -46,7 +45,31 @@ pub fn solve_takewhile(limit: u32) {
     let sum = fibonacci::fibonacci()
         .take_while(|x| x < &limit)
         .fold(0, |sum, x| if x % 2 == 0 { sum + x } else { sum });
+    println!(
+        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
+        limit, sum
+    )
+}
 
+pub fn solve_takewhile_filter(limit: u32) {
+    let sum = fibonacci::fibonacci()
+        .take_while(|x| x < &limit)
+        .filter(|&x| x % 2 == 0)
+        .fold(0, |sum, x| sum + x);
+    println!(
+        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
+        limit, sum
+    )
+}
+
+pub fn solve_takewhile_filter_mutable(limit: u32) {
+    let mut sum = 0;
+    for i in fibonacci::fibonacci()
+        .take_while(|x| x < &limit)
+        .filter(|&x| x % 2 == 0)
+    {
+        sum += i
+    }
     println!(
         "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
         limit, sum
