@@ -1,4 +1,5 @@
 use primes::PrimeSet;
+#[allow(unused_imports)]
 use test::Bencher;
 
 /// Problem 3: Largest prime factor

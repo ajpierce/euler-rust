@@ -1,3 +1,4 @@
+#[allow(unused_imports)]
 use test::Bencher;
 use utils::fibonacci;
 

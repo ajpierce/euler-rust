@@ -1,3 +1,4 @@
+#[allow(unused_imports)]
 use test::Bencher;
 
 /// Problem 1: Multiples of 3 and 5
