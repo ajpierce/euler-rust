@@ -4,17 +4,17 @@ extern crate primes;
 extern crate test;
 use test::Bencher;
 
+mod p001;
+mod p002;
+mod p003;
+mod p004;
 mod utils;
-// mod p1;
-// mod p2;
-// mod p3;
-mod p4;
 
 fn main() {
-    // p1::fold_sum(10000);
-    // p2::solve_takewhile(4000000);
-    // p3::solve3(600851475143);
-    p4::solve(900, 1000);
+    p001::fold_sum(10000);
+    p002::solve_takewhile(4000000);
+    p003::solve3(600851475143);
+    p004::solve(900, 1000);
 }
 
 /*
