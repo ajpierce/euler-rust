@@ -6,15 +6,18 @@ use test::Bencher;
 
 mod utils;
 // mod p1;
-mod p2;
-mod p3;
+// mod p2;
+// mod p3;
+mod p4;
 
 fn main() {
     // p1::fold_sum(10000);
     // p2::solve_takewhile(4000000);
-    p3::solve3(600851475143);
+    // p3::solve3(600851475143);
+    p4::solve(900, 1000);
 }
 
+/*
 #[bench]
 fn for_sum(b: &mut Bencher) {
     b.iter(|| {
@@ -50,7 +53,6 @@ fn takewhile_filter_mutable_sum(b: &mut Bencher) {
     });
 }
 
-/*
 #[bench]
 fn for_sum(b: &mut Bencher) {
     b.iter(|| {
