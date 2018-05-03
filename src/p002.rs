@@ -1,3 +1,4 @@
+use test::Bencher;
 use utils::fibonacci;
 
 /// Problem 2: Even Fibonacci numbers
@@ -74,4 +75,39 @@ pub fn solve_takewhile_filter_mutable(limit: u32) {
         "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
         limit, sum
     )
+}
+
+#[bench]
+fn bench_for_sum(b: &mut Bencher) {
+    b.iter(|| {
+        solve_for(40000000);
+    });
+}
+
+#[bench]
+fn bench_while_sum(b: &mut Bencher) {
+    b.iter(|| {
+        solve_while(40000000);
+    });
+}
+
+#[bench]
+fn bench_takewhile_sum(b: &mut Bencher) {
+    b.iter(|| {
+        solve_takewhile(40000000);
+    });
+}
+
+#[bench]
+fn bench_takewhile_filter_sum(b: &mut Bencher) {
+    b.iter(|| {
+        solve_takewhile_filter(40000000);
+    });
+}
+
+#[bench]
+fn bench_takewhile_filter_mutable_sum(b: &mut Bencher) {
+    b.iter(|| {
+        solve_takewhile_filter_mutable(40000000);
+    });
 }

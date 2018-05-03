@@ -1,9 +1,12 @@
+use test::Bencher;
+
 /// Problem 1: Multiples of 3 and 5
 ///
 /// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
 /// The sum of these multiples is 23.
 ///
 /// Find the sum of all the multiples of 3 or 5 below 1000.
+
 pub fn for_sum(max: i32) {
     let mut sum = 0;
     for x in 1..max {
@@ -21,4 +24,18 @@ pub fn fold_sum(max: i32) {
         }
     });
     println!("Sum is: {}", sum);
+}
+
+#[bench]
+fn bench_for_sum(b: &mut Bencher) {
+    b.iter(|| {
+        for_sum(10000);
+    });
+}
+
+#[bench]
+fn bench_fold_sum(b: &mut Bencher) {
+    b.iter(|| {
+        fold_sum(10000);
+    });
 }
