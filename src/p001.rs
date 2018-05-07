@@ -24,7 +24,10 @@ pub fn fold_sum(max: i32) {
             sum
         }
     });
-    println!("p001: The sum of all multiples of 3 or 5 below {} is: {}", max, sum);
+    println!(
+        "p001: The sum of all multiples of 3 or 5 below {} is: {}",
+        max, sum
+    );
 }
 
 #[bench]

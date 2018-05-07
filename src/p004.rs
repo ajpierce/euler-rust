@@ -8,7 +8,7 @@ use test::Bencher;
 ///
 /// Find the largest palindrome made from the product of two 3-digit numbers.
 
-fn print_answer(min: u64, max:u64, answer: u64) {
+fn print_answer(min: u64, max: u64, answer: u64) {
     println!(
         "p004: The largest palindrome made from products between {} and {} is: {}",
         min, max, answer
@@ -59,7 +59,7 @@ pub fn solve_collect(min: u64, max: u64) {
         })
         .max()
         .unwrap();
-        print_answer(min, max, answer);
+    print_answer(min, max, answer);
 }
 
 pub fn solve(min: u64, max: u64) {
@@ -72,7 +72,7 @@ pub fn solve(min: u64, max: u64) {
         })
         .max()
         .unwrap();
-        print_answer(min, max, answer);
+    print_answer(min, max, answer);
 }
 
 pub fn solve_cast(min: u64, max: u64) {
@@ -85,7 +85,7 @@ pub fn solve_cast(min: u64, max: u64) {
         })
         .max()
         .unwrap();
-        print_answer(min, max, answer);
+    print_answer(min, max, answer);
 }
 
 pub fn solve_cast_deref(min: u64, max: u64) {
@@ -98,14 +98,14 @@ pub fn solve_cast_deref(min: u64, max: u64) {
         })
         .max()
         .unwrap();
-        print_answer(min, max, answer);
+    print_answer(min, max, answer);
 }
 
 pub fn solve_naive(min: u64, max: u64) {
     let mut answer: u64 = 0;
     for i in (min..max) {
         for j in (min..max) {
-            if is_palindrome((i * j).to_string()) && (i*j) > answer {
+            if is_palindrome((i * j).to_string()) && (i * j) > answer {
                 answer = (i * j)
             }
         }
