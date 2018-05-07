@@ -14,7 +14,7 @@ pub fn solve(num: u64) {
         .take_while(|x| x <= &max_check)
         .fold(0, |gpf, x| if num % x == 0 { x } else { gpf });
 
-    println!("Greatest prime factor of {} is: {}", num, gpf);
+    println!("p003: Largest prime factor of {} is: {}", num, gpf);
 }
 
 #[bench]

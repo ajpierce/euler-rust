@@ -11,6 +11,14 @@ use utils::fibonacci;
 ///
 /// By considering the terms in the Fibonacci sequence whose values do not
 /// exceed four million, find the sum of the even-valued terms.
+
+fn print_answer(limit: u32, sum: u32) {
+    println!(
+        "p002: The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
+        limit, sum
+    )
+}
+
 pub fn solve_while(limit: u32) {
     let mut sum = 0;
     let mut iterator = fibonacci::fibonacci();
@@ -23,10 +31,7 @@ pub fn solve_while(limit: u32) {
         };
         current = iterator.next();
     }
-    println!(
-        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
-        limit, sum
-    )
+    print_answer(limit, sum)
 }
 
 pub fn solve_for(limit: u32) {
@@ -37,20 +42,14 @@ pub fn solve_for(limit: u32) {
         }
         sum += if current % 2 == 0 { current } else { 0 }
     }
-    println!(
-        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
-        limit, sum
-    )
+    print_answer(limit, sum)
 }
 
 pub fn solve_takewhile(limit: u32) {
     let sum = fibonacci::fibonacci()
         .take_while(|x| x < &limit)
         .fold(0, |sum, x| if x % 2 == 0 { sum + x } else { sum });
-    println!(
-        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
-        limit, sum
-    )
+    print_answer(limit, sum)
 }
 
 pub fn solve_takewhile_filter(limit: u32) {
@@ -58,10 +57,7 @@ pub fn solve_takewhile_filter(limit: u32) {
         .take_while(|x| x < &limit)
         .filter(|&x| x % 2 == 0)
         .fold(0, |sum, x| sum + x);
-    println!(
-        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
-        limit, sum
-    )
+    print_answer(limit, sum)
 }
 
 pub fn solve_takewhile_filter_mutable(limit: u32) {
@@ -72,10 +68,7 @@ pub fn solve_takewhile_filter_mutable(limit: u32) {
     {
         sum += i
     }
-    println!(
-        "The sum of all even numbers in the Fibonacci sequence until {:?} is: {}",
-        limit, sum
-    )
+    print_answer(limit, sum)
 }
 
 #[bench]
