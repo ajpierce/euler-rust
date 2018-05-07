@@ -15,6 +15,7 @@ fn print_answer(min: u64, max: u64, answer: u64) {
     );
 }
 
+#[allow(dead_code)]
 fn is_palindrome_collect(val: String) -> bool {
     let reversed = val.chars().rev().collect::<String>();
     return val == reversed;
@@ -29,6 +30,7 @@ fn is_palindrome(val: String) -> bool {
     return true;
 }
 
+#[allow(dead_code)]
 fn is_palindrome_cast(num: u64) -> bool {
     let val = num.to_string();
     for (i1, i2) in val.chars().zip(val.chars().rev()) {
@@ -39,6 +41,7 @@ fn is_palindrome_cast(num: u64) -> bool {
     return true;
 }
 
+#[allow(dead_code)]
 fn is_palindrome_cast_deref(num: &u64) -> bool {
     let val = num.to_string();
     for (i1, i2) in val.chars().zip(val.chars().rev()) {
@@ -49,7 +52,8 @@ fn is_palindrome_cast_deref(num: &u64) -> bool {
     return true;
 }
 
-pub fn solve_collect(min: u64, max: u64) {
+#[allow(dead_code)]
+fn solve_collect(min: u64, max: u64) {
     let answer = (min..max)
         .filter_map(|i| {
             (min..max)
@@ -75,7 +79,8 @@ pub fn solve(min: u64, max: u64) {
     print_answer(min, max, answer);
 }
 
-pub fn solve_cast(min: u64, max: u64) {
+#[allow(dead_code)]
+fn solve_cast(min: u64, max: u64) {
     let answer = (min..max)
         .filter_map(|i| {
             (min..max)
@@ -88,7 +93,8 @@ pub fn solve_cast(min: u64, max: u64) {
     print_answer(min, max, answer);
 }
 
-pub fn solve_cast_deref(min: u64, max: u64) {
+#[allow(dead_code)]
+fn solve_cast_deref(min: u64, max: u64) {
     let answer = (min..max)
         .filter_map(|i| {
             (min..max)
@@ -101,22 +107,24 @@ pub fn solve_cast_deref(min: u64, max: u64) {
     print_answer(min, max, answer);
 }
 
-pub fn solve_naive(min: u64, max: u64) {
+#[allow(dead_code)]
+fn solve_naive(min: u64, max: u64) {
     let mut answer: u64 = 0;
-    for i in (min..max) {
-        for j in (min..max) {
+    for i in min..max {
+        for j in min..max {
             if is_palindrome((i * j).to_string()) && (i * j) > answer {
-                answer = (i * j)
+                answer = i * j
             }
         }
     }
     print_answer(min, max, answer);
 }
 
-pub fn solve_naive_less_multiplication(min: u64, max: u64) {
+#[allow(dead_code)]
+fn solve_naive_less_multiplication(min: u64, max: u64) {
     let mut answer: u64 = 0;
-    for i in (min..max) {
-        for j in (min..max) {
+    for i in min..max {
+        for j in min..max {
             let product = i * j;
             if is_palindrome(product.to_string()) && product > answer {
                 answer = product;
